@@ -1,0 +1,207 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ head,body{
+    height: 100%;
+    width: 100%;
+ }
+   #main{
+        height: 100%;
+        width: 100%;   
+    }
+    #header{
+        height: 7vh;
+        width: 100vw;
+        background-color: white;
+        position: fixed;
+        display:flex;
+        align-items: center;
+    }
+    #useless{
+   height: 7vh;
+  width: 100vw;
+        
+    }
+    #logo{
+        margin-left: 15px;
+        object-fit:cover;
+    }
+    .text{
+        color:rgb(16, 16, 88);
+        margin-left: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        /* font-size: 18px; */
+        font-weight: bold;
+        /* cursor: pointer; */
+    }
+    .text:hover{
+        color: rgb(0, 112, 210);
+        cursor: pointer;
+    }
+    #contactdetails{
+         margin-left: 430px;
+    }
+    #icon{
+        /* margin-left: auto; */
+        margin-left: 15px;
+        font-size: 24px;
+        color: rgb(16, 16, 88);
+        cursor: pointer;
+        border-radius: 50%;
+        padding:10px;
+
+    }
+    #icon:hover{
+        background-color: rgb(108, 173, 226);
+    }
+     
+    #login{
+        padding:10px;
+        border-radius: 50%;
+        display:flex;
+        margin-left: 15px;
+        color: rgb(16, 16, 88);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+         
+    }
+    #login:hover{
+        background-color: rgb(108, 173, 226);
+        cursor: pointer;
+    }
+    #signup{
+        margin-left: 15px;
+        background-color: rgb(0, 112, 210);
+        padding: 8px 12px;
+        border-radius: 20px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #signup:hover{
+        background-color: rgb(16, 16, 88);
+    }
+     
+     
+    #p1{
+        height: 93vh;
+        width: 100vw;
+        background-color: white; 
+    }
+    #strip{
+        width:100%;
+        height: 40px;
+        background-color: rgb(9, 51, 87);
+        color: white;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #strip:hover{
+        background-color: rgb(31, 165, 232);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    #strip u{
+        margin-left: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    #content{
+        height: 80vh;
+        width: 100vw;
+        /* background-color: wheat; */
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #box1{
+        height:90%;
+        width:50%;
+        background-color: white;
+        margin-right: 20px;
+        margin-left: 14px;
+        border-radius: 10px;
+        /* display:flex; */
+         
+    }
+    #box1 img{
+        height: 68%;
+        width: 100%;
+        border-radius: 10px;
+        
+         
+    }
+    #switch{
+         margin:30px ;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #button1{
+        text-align: center;
+        margin-left: 14px;
+        display:flex;
+        width:23%;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: rgb(4, 54, 97);
+        color: white;
+    }
+    #button1:hover{
+        background-color: rgb(31, 165, 232);
+        cursor: pointer;
+    }
+    #button2{
+        text-align: center;
+        margin-left: 14px;
+        display:flex;
+        width:23%;
+        padding: 10px 20px;
+        margin-top: 10px;
+        color: rgb(31, 165, 232);
+        border:1px solid rgb(31, 165, 232);   
+    }
+    #button2:hover{
+        background-color: rgb(62, 159, 207);
+        color: white;
+        cursor: pointer;
+        border-color: rgb(18, 62, 84);
+    }
+    #box1 img:hover{
+        transform: scale(1.05);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    #box2{
+        height:90%;
+        width:50%;
+        /* background-color: grey; */
+        margin-left: 20px;
+        
+    }
+    #heading{
+        margin-bottom:20vh;
+        width:100%;
+        height: 10vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color:rgb(32, 32, 94)
+
+    }
+    #heading h1{
+        font-weight: 600;
+    }
+    #p2{
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(241, 241, 237); 
+        align-items: center;
+        background-size: cover;
+    }

@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+head,body{
+    height: 100%;
+    width:100%;
+    background-color: blanchedalmond;
+}
+#main{
+ 
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+}
+h2{
+    display:flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+    background-color: aqua;
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+.card{
+    position: absolute;
+    height: 50%;
+    width: 40%;
+     top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    /* border : 1px solid salmon; */
+    border-radius: 15px; 
+    overflow: hidden;
+    
+}
+#card1{
+    z-index: 4;
+    transform: translate(-50%,-50%);
+}
+#card1:hover{
+    z-index: 10;
+     
+}
+#card2{
+    z-index: 3;
+    transform: translate(-50%,-50%) rotate(-8deg);
+}
+#card2:hover{
+    z-index: 10;
+    
+}
+#card3{
+    z-index: 2;
+    transform: translate(-50%,-50%) rotate(-16deg);
+}
+#card3:hover{
+    z-index: 10;
+     
+}
+#card4{
+    z-index: 1;
+    transform: translate(-50%,-50%) rotate(-24deg);
+}
+#card4:hover{
+    z-index: 10;
+     
+}
+.card img{
+    height: 100%;
+    width: 100%;
+    /* border-radius: 15px;  */
+    object-fit: cover;
+}

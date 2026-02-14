@@ -1,0 +1,222 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hill Climb Game</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #222;
+        color: white;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    canvas {
+        background: #87CEEB;
+        display: block;
+        margin: auto;
+        border: 3px solid #000;
+    }
+
+    .info {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        background: #111;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<h2>🏁 Hill Climb Game  ABHAY KUMAR</h2>
+
+<div class="info">
+    <div>Score: <span id="score">0</span></div>
+    <div>Money: <span id="money">0</span></div>
+    <div>Fuel: <span id="fuel">100</span>%</div>
+    <button onclick="restartGame()">Restart</button>
+</div>
+
+<canvas id="gameCanvas" width="900" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let gameOver = false;
+
+// ---------------- CAR ----------------
+let car = {
+    x: 150,
+    y: 200,
+    w: 50,
+    h: 25,
+    vy: 0
+};
+
+const gravity = 0.6;
+let roadOffset = 0;
+
+// ---------------- GAME DATA ----------------
+let score = 0;
+let money = 0;
+let fuel = 100;
+
+// ---------------- OBJECTS ----------------
+let coins = [];
+let plants = [];
+
+// ---------------- FUNCTIONS ----------------
+function groundY(x) {
+    return 300 + Math.sin((x + roadOffset) * 0.01) * 40;
+}
+
+function createObjects() {
+    coins = [];
+    plants = [];
+
+    for (let i = 300; i < 4000; i += 300) {
+        coins.push({ x: i, y: groundY(i) - 40, collected: false });
+    }
+
+    for (let i = 500; i < 4000; i += 500) {
+        plants.push({ x: i, y: groundY(i) - 30 });
+    }
+}
+
+function drawGround() {
+    ctx.beginPath();
+    ctx.moveTo(0, groundY(0));
+
+    for (let x = 0; x < canvas.width; x++) {
+        ctx.lineTo(x, groundY(x));
+    }
+
+    ctx.lineTo(canvas.width, canvas.height);
+    ctx.lineTo(0, canvas.height);
+    ctx.fillStyle = "#228B22";
+    ctx.fill();
+}
+
+function drawCar() {
+    ctx.fillStyle = "red";
+    ctx.fillRect(car.x, car.y, car.w, car.h);
+
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(car.x + 10, car.y + car.h, 7, 0, Math.PI * 2);
+    ctx.arc(car.x + 40, car.y + car.h, 7, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+function drawCoins() {
+    ctx.fillStyle = "gold";
+    coins.forEach(c => {
+        if (!c.collected) {
+            ctx.beginPath();
+            ctx.arc(c.x - roadOffset, c.y, 8, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    });
+}
+
+function drawPlants() {
+    ctx.fillStyle = "green";
+    plants.forEach(p => {
+        ctx.fillRect(p.x - roadOffset, p.y, 15, 30);
+    });
+}
+
+function checkCoinCollision() {
+    coins.forEach(c => {
+        if (!c.collected) {
+            let cx = c.x - roadOffset;
+            if (
+                car.x < cx + 10 &&
+                car.x + car.w > cx - 10 &&
+                car.y < c.y + 10 &&
+                car.y + car.h > c.y - 10
+            ) {
+                c.collected = true;
+                money += 10;
+            }
+        }
+    });
+}
+
+function update() {
+    if (gameOver) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawGround();
+    drawCoins();
+    drawPlants();
+
+    // gravity
+    car.vy += gravity;
+    car.y += car.vy;
+
+    let gy = groundY(car.x + car.w / 2);
+    if (car.y + car.h > gy) {
+        car.y = gy - car.h;
+        car.vy = 0;
+    }
+
+    drawCar();
+    checkCoinCollision();
+
+    // fuel & score
+    fuel -= 0.03;
+    score++;
+
+    document.getElementById("score").innerText = Math.floor(score);
+    document.getElementById("money").innerText = money;
+    document.getElementById("fuel").innerText = Math.max(0, Math.floor(fuel));
+
+    if (fuel <= 0) {
+        gameOver = true;
+        alert("Game Over! Fuel Empty ⛽");
+    }
+
+    requestAnimationFrame(update);
+}
+
+// ---------------- CONTROLS ----------------
+document.addEventListener("keydown", e => {
+    if (e.key === "ArrowRight" && fuel > 0) {
+        roadOffset += 6;
+    }
+    if (e.key === "ArrowLeft" && fuel > 0) {
+        roadOffset -= 6;
+    }
+});
+
+// ---------------- RESTART ----------------
+function restartGame() {
+    score = 0;
+    money = 0;
+    fuel = 100;
+    roadOffset = 0;
+    car.y = 200;
+    gameOver = false;
+    createObjects();
+    update();
+}
+
+// INIT
+createObjects();
+update();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day - Abhay Kumar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 5px rgba(32, 111, 194, 0.3);
+    }
+
+    .heart {
+      font-size: 5em;
+      color: red;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .intro {
+      margin: 40px auto;
+      max-width: 600px;
+      font-size: 1.5em;
+      line-height: 1.6;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Valentine's Day 💕</h1>
+    <div class="heart">❤️</div>
+  </header>
+
+  <section class="intro">
+    <p>
+      Hello, I am <strong>KUMAR ABHAY</strong>, a proud bachelor celebrating love and life.<br>
+      Valentine's Day is not just about couples, it's about spreading joy, kindness, and romance everywhere. 🌹
+    </p>
+  </section>
+
+  <!-- Romantic background music -->
+  <audio autoplay loop>
+    <source src=" https://open.spotify.com/track/4QxDOjgpYtQDxxbWPuEJOy?si=0212e3149f4640c4" type="audio/mpeg">
+    <!-- Your browser does not support the audio element. -->
+  </audio>
+
+  <footer>
+    Made with ❤️ by KUMAR ABHAY.
+      <br>👌👌👌👌👌<br>
+  </footer>
+</body>
+</html>
